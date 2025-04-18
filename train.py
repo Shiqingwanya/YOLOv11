@@ -13,6 +13,7 @@ model = YOLO("yolo11n.yaml").load("yolo11n.pt")  # build from YAML and transfer 
 results = model.train(data="dataset.yaml", epochs=100, imgsz=640, device="0", workers=0, save=True)
 
 val = model.val()
+print(val.box.map)
 
 model.save("my_model.pt")
 
